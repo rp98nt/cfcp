@@ -3,35 +3,48 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<map>
 using namespace std;
 
-int findUniqueWithSorting(vector<int> v){
-    // using sorting.
-    int temp;
-    sort(v.begin(), v.end());
-    for(int i=0; i<v.size(); i++){
-        if(v[i] == v[i+1])
-            i++;
-        else
-            temp = v[i];
-    }
-    return temp;
-}
+// int findUniqueWithSorting(vector<int> v){
+//     // using sorting.
+//     int temp;
+//     sort(v.begin(), v.end());
+//     for(int i=0; i<v.size(); i++){
+//         if(v[i] == v[i+1])
+//             i++;
+//         else
+//             temp = v[i];
+//     }
+//     return temp;
+// }
 
-int findUniqueWithoutSorting(vector<int> v){
-    // without sorting.
-    while(v.size()!=1){
-        int target = v[0];
-        for(int j=1; j<v.size(); j++){
-            if(target == v[j]){
-                v.erase(v.begin()+j);
-                v.erase(v.begin());
-                break;
-            }
-        }
-    }
-    return v[0];
-}
+// int findUniqueWithoutSorting(vector<int> v){
+//     // without sorting.
+//     while(v.size()!=1){
+//         int target = v[0];
+//         for(int j=1; j<v.size(); j++){
+//             if(target == v[j]){
+//                 v.erase(v.begin()+j);
+//                 v.erase(v.begin());
+//                 break;
+//             }
+//         }
+//     }
+//     return v[0];
+// }
+
+// int findUniqueByMap(vector<int> v){
+//     map<int, int> m;
+//     for(int i=0; i<v.size(); i++){
+//         m[v[i]]++;
+//     }
+//     for(auto x: m){
+//         if(x.second == 1)
+//             return x.first;
+//     }
+//     return -1;
+// }
 
 int main(){
     int n;
@@ -42,7 +55,8 @@ int main(){
         cin>>temp;
         v.push_back(temp);
     }
-    cout<<"Unique element Without sorting - "<<findUniqueWithoutSorting(v)<<endl;
-    cout<<"Unique element with sorting - "<<findUniqueWithSorting(v);
+    // cout<<"Unique element Without sorting - "<<findUniqueWithoutSorting(v)<<endl;
+    // cout<<"Unique element with sorting - "<<findUniqueWithSorting(v)<<endl;
+    // cout<<"Unique element using Map - "<<findUniqueByMap(v)<<endl;
     return 0;
 }
