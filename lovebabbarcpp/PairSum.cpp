@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 
 vector<vector<int>> pairSum(vector<int> &arr, int s){
@@ -14,6 +15,7 @@ vector<vector<int>> pairSum(vector<int> &arr, int s){
             }
         }
     }
+    sort(ans.begin(), ans.end());
     return ans;
 }
 
